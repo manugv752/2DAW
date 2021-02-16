@@ -43,8 +43,8 @@ function obtener_productos(){
    header('Content-Type: application/json');
    $json = json_encode($array);
    echo $json;
-   $file = 'productos.json';
-   file_put_contents($file,$json );
+  // $file = 'productos.json';
+   //file_put_contents($file,$json );
  }
 
 obtener_productos();

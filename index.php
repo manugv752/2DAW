@@ -44,18 +44,6 @@
  
     </main>
 
-    <table class="grilla" id="tablajson">
-        <thead>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Edad</th>
-        <th>Género</th>
-        <th>Email</th>			
-        <th>Localidad</th>
-        <th>Teléfono</th>			
-        </thead>
-        <tbody></tbody>
-        </table>
 
  <?php 
    
@@ -75,7 +63,7 @@
         {
             echo "<h1> Configuración administrador </h1>";
             echo "<a href='administrar_usuarios.php' > Administracion Base Datos </a>";
-            echo "<a href='json.php' > json </a>";
+          
             
 
            
