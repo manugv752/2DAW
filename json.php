@@ -16,7 +16,7 @@ function obtener_productos(){
       
 
         $fila =  mysqli_fetch_assoc($res );
-        $fila['imagen']=$base64 = 'data:image/' . ';base64,' . base64_encode($fila['imagen']);
+        $fila['imagen']/*=$base64*/ = 'data:image/' . ';base64,' . base64_encode($fila['imagen']);
 
      
         //print_r($fila);

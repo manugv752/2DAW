@@ -17,6 +17,7 @@
         {
             echo "<h1> Configuración administrador </h1>";
             echo "<a href='administrar_usuarios.php' > Administracion Base Datos </a>";
+            echo "<a href='administrar_productos.php' > Administrar Productos </a>";
             echo "<a href='inicio.html' > Inicio Pagina </a>";
           
             
