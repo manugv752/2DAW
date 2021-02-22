@@ -17,18 +17,30 @@ const crea_form =(lugar,id_formulario) =>{
     const formulario = document.createElement("form");
     formulario.setAttribute("id", id_formulario);
     formulario.setAttribute("class", "formulario_producto");
+    formulario.setAttribute("action", "añadir_carrito.php");
+    formulario.setAttribute("method", "post");
     
-    const botom = document.createElement("button");
-    botom.setAttribute("Value", "Añadir");
-    botom.innerText="Añadir"
-    botom.setAttribute("type", "submit");
+    const input_botom = document.createElement("button");
+    input_botom.innerText="Añadir";
+    input_botom.setAttribute("type", "submit");
 
     const input_cantidad = document.createElement("input");
+    input_cantidad.setAttribute("name", "cantidad");
     input_cantidad.setAttribute("type", "number");
     input_cantidad.setAttribute("placeholder", "Unidades");
 
+    const input_id = document.createElement("input");
+    input_id.setAttribute("name", "id");
+    input_id.setAttribute("type", "hidden");
+    input_id.setAttribute("value", id_formulario);
+
+
+
+    formulario.appendChild(input_id);
+   
     formulario.appendChild(input_cantidad);
-    formulario.appendChild(botom);
+
+    formulario.appendChild(input_botom);
 
     lugar.appendChild(formulario);
 }
@@ -58,7 +70,7 @@ const crea_item = (producto, lugar) =>{
     item.appendChild(precio);
     
 
-    crea_form(item,producto.id);
+    crea_form(item,producto.id_producto);
 
     lugar.appendChild(item);
 }
@@ -80,3 +92,6 @@ const muestra_productos = (data) =>{
 //muestra_productos(30);
 
 recoge_datos();
+
+
+

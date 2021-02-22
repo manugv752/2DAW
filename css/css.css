@@ -14,13 +14,13 @@ main {
   border-radius: 10%;
   width: 250px;
   height: 370px;
-  background-color: rgb(141, 120, 120);
+  background-color: rgb(167, 186, 187);
   margin: 2%;
   padding: 1em 2em;
 }
 
 .item:hover {
-  box-shadow: 3px 3px red, -1em 0 0.4em rgb(19, 0, 128);
+  box-shadow: 3px 3px rgb(0, 217, 255);
 }
 
 .item img {

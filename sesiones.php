@@ -12,6 +12,7 @@ error_reporting(0);
         $_SESSION['sesion_iniciada'] = true;
         $_SESSION['nombre'] = $nombreUsuario;
         $_SESSION['rol'] = $rol;
+        $_SESSION['listacompra']=[];
 
         echo "Sesion iniciada <br>";
         echo "Nombre: ".$_SESSION['nombre']."<br />";

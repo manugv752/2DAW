@@ -1,16 +1,22 @@
-
-
 <?php 
 
-//session_start();
+session_start();
 include "conexion.php";
 
+function json($array){
+    header('Content-Type: application/json');
+    $json = json_encode($array);
+    //echo $json;
+   // $file = 'productos.json';
+    //file_put_contents($file,$json );
+  }
 
-function obtener_productos(){
+
    $conexion=conectar();
 
-   
-   $consulta = "SELECT id_producto,nombre,imagen,precio,stock,id_categoria_productos FROM productos;";
+   $categoria=$_REQUEST["id"];
+   echo $categoria;
+   $consulta = "SELECT id_producto,nombre,imagen,precio,stock,id_categoria_productos FROM productos where id_categoria_productos='1';";
 
    $res=mysqli_query($conexion,$consulta) or die("consulta incorrecta");
 
@@ -40,16 +46,10 @@ function obtener_productos(){
    json($array);
   // return $array;
    //print_r($array);
-}
 
- function json($array){
-   header('Content-Type: application/json');
-   $json = json_encode($array);
-   echo $json;
-  // $file = 'productos.json';
-   //file_put_contents($file,$json );
- }
+   header("Location: productos.php");
 
-obtener_productos();
+
+
 
 ?>
