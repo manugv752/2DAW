@@ -46,7 +46,7 @@ const crea_form =(lugar,id_formulario) =>{
 }
 const crea_item = (producto, lugar) =>{
     
-    console.log(producto.nombre);
+    console.log(producto.descripcion);
 
     const item = document.createElement("div");
     item.className = "item";
@@ -58,11 +58,17 @@ const crea_item = (producto, lugar) =>{
     nombre.textContent= producto.nombre;
 
     const descripcion = document.createElement("p");
-    descripcion.textContent=producto.descripcion;
+    descripcion.innerHTML=producto.descripcion;
 
     const precio = document.createElement("div");
     precio.className = "precio";
-    precio.textContent=producto.precio + "€";
+    if(producto.stock<=0)
+    {
+        precio.textContent="Sin Stock";
+    }else
+    {
+        precio.textContent=producto.precio + "€";
+    }
 
     item.appendChild(img);
     item.appendChild(nombre);
@@ -79,8 +85,8 @@ const muestra_productos = (data) =>{
 
 
     const fragmento = document.createDocumentFragment();
-    console.log(data.length)
-    console.log(data[0]);
+    //console.log(data.length)
+    //console.log(data[0]);
 
     for(i=0; i<data.length; i++){
         crea_item(data[i],fragmento);

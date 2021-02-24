@@ -10,7 +10,7 @@ function obtener_productos(){
    $conexion=conectar();
 
    
-   $consulta = "SELECT id_producto,nombre,imagen,precio,stock,id_categoria_productos FROM productos;";
+   $consulta = "SELECT id_producto,nombre,imagen,precio,stock,descripcion,id_categoria_productos FROM productos;";
 
    $res=mysqli_query($conexion,$consulta) or die("consulta incorrecta");
 

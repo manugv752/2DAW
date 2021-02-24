@@ -18,7 +18,7 @@ session_start();
 
 ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand bg-info" href="#">Bienvenido  <?php error_reporting(0); echo $_SESSION['nombre']?></a>
+        <a class="navbar-brand bg-info p-2" href="#">Bienvenido  <?php error_reporting(0); echo $_SESSION['nombre']?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,11 +35,11 @@ session_start();
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="json.php?id_categoria_productos=1">Artesanales</a>
-                  <a class="dropdown-item" href="json.php?id=2">IPA</a>
-                  <a class="dropdown-item" href="json.php?id=3">Lager</a>
-                  <a class="dropdown-item" href="json.php?id=4">Negras</a>
-                  <a class="dropdown-item" href="json.php?id=5">Trigo</a>
+                  <a class="dropdown-item" href="json_categorias.php?id=1">Artesanales</a>
+                  <a class="dropdown-item" href="json_categorias.php?id=2">IPA</a>
+                  <a class="dropdown-item" href="json_categorias.php?id=3">Lager</a>
+                  <a class="dropdown-item" href="json_categorias.php?id=4">Negras</a>
+                  <a class="dropdown-item" href="json_categorias.php?id=5">Trigo</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -48,6 +48,21 @@ session_start();
               <li class="nav-item">
                 <a class="nav-link" href="cesta.php">Mi cesta</a>
               </li>
+              <?php if($_SESSION['rol']=="admin")
+              {
+                
+                echo " <li class='nav-item'>
+                <a class='nav-link' href=administrar_usuarios.php>
+                Administrar Usuarios</a></li>";
+
+                echo " <li class='nav-item'>
+                <a class='nav-link' href=administrar_productos.php>
+                Administrar Productos</a></li>";
+
+
+              
+              }
+              ?>
               <li class="nav-item ">
                 <a class="nav-link" href="cerrar_sesion.php">Cerrar sesion </a>
               </li>
@@ -153,11 +168,16 @@ session_start();
         echo"<td></td>\n";
         echo"<td></td>\n";
         echo "<tr><td colspan=10><hr></td></tr> ";
-       
+      
         echo "</table>";
+        echo "<center><a href='finalizar_pedido.php'>Comprar</a></center>";
     }
     else{
-        header("Location: productos.php");
+      echo'<script type="text/javascript">
+      alert("Logueate criatura");
+      window.location.href="productos.php";
+      </script>';
+       
     }
 ?>
  <script src="app.js"></script>
